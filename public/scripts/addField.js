@@ -4,7 +4,9 @@ function cloneField() {
   const fields = newFieldContainer.querySelectorAll('input');
   fields.forEach(function(field) {
     field.value = "";
-  })
+  });
 
   document.querySelector('#schedule-items').appendChild(newFieldContainer);
 };
+
+console.log("Testing FRONT-END CODE!")
