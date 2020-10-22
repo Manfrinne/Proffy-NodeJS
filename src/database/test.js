@@ -12,7 +12,7 @@ Database.then(async (db) => {
   };
 
   classValue = {
-    subject: "Química",
+    subject: 1,
     cost: "20",
     // o proffy id virá pelo banco de dados
   };
@@ -31,7 +31,36 @@ Database.then(async (db) => {
     }
   ];
 
-  await createProffy(db, {proffyValue, classValue, classScheduleValues});
+  // await createProffy(db, {proffyValue, classValue, classScheduleValues});
 
   // consultar dados inseridos
+
+  // todos os proffys
+  const selectedProffy = await db.all("SELECT * FROM proffys");
+  // console.log(selectedProffy)
+
+  // consultar as classes de um determinado professor
+  // e trazer junto os dados do professor
+  const selectClassesAndProffys = await db.all(`
+    SELECT classes.*, proffys.*
+    FROM proffys
+    JOIN classes ON (classes.proffy_id = proffys.id)
+    WHERE classes.proffy_id = 1;
+  `);
+  // console.log(selectClassesAndProffys)
+
+  // o horário de trabalho, por exemplo, é das 8hrs - 18hrs
+  // então, o time_from (8h) precisa ser antes ou igual ao horário
+  // solicitado no time_to precisa ser acima.
+  const selectClassesSchedules = await db.all(`
+    SELECT class_schedule.*
+    FROM class_schedule
+    WHERE class_schedule.class_id = "1"
+    AND class_schedule.weekday = "0"
+    AND class_schedule.time_from <= "1300"
+    AND class_schedule.time_to > "1300"
+  `);
+
+  // console.log(selectClassesSchedules)
+
 });
