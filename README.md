@@ -1,13 +1,20 @@
+
+<div align="center">
+
 # PROFFY - Projeto Bootcamp Rocketseat
 
-> Desenvolvimento frontend e backend de uma aplicação Web
+> Desenvolvimento fullstack de uma aplicação Web
+</div>
+
+
 
 <h1 align="center">
     <img alt="Proffy" title="Proffy" src=".github/logo.svg" />
 </h1>
 
 <p align="center">
-  <img alt="Proffy" src=".github/proffy.png" width="100%">
+  <img alt="Proffy" src=".github/proffy.png" width="70%">
+  <img alt="Proffy" src=".github/Proffy_google-pixel5.png" width="25%">
 </p>
 
 O Proffy é uma plataforma de estudos online que ajuda pessoas a encontrarem professores na internet.
